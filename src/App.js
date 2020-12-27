@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Todo from './Components/Todo'
+import TodoForm from './Components/TodoForm'
 
 function App() {
   const [todos, setTodos] = useState([
@@ -17,13 +18,24 @@ function App() {
     }
   ])
 
-  return (
+  const addTodo = (text) => {
+    const newTodos = [...todos, {text}]
+    setTodos(newTodos)
+  }
+
+  const completedTodo = (index) => {
+    const newTodos = [...todos]
+    newTodos[index].isCompleted = true
+    setTodos(newTodos)
+  }
+
+  return (  
     <div className="App">
       <div className="todo-list">
         { todos.map( (todo, index)=>(
-          //<div>{todo.text}</div>
-          <Todo key={index} index={index} todo={todo} />
+          <Todo key={index} index={index} todo={todo} completedTodo={completedTodo} />
          ) ) }
+        <TodoForm addTodo={addTodo} />
       </div>
     </div>
   );

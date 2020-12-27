@@ -2,8 +2,11 @@ import React from 'react'
 
 function Todo(props) {
   return (
-    <div className="todo">
+    <div style={{textDecoration: props.todo.isCompleted ? 'line-through' : ''}} className="todo">
       {props.todo.text}
+      <div>
+        <button onClick={ ()=>{props.completedTodo(props.index)} }>Complete</button>
+      </div>
     </div>
   )
 }
