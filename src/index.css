@@ -28,3 +28,8 @@
   margin-bottom: 6px;
   padding: 3px 10px;
 }
+
+.Component2 {
+  margin-top: 32px;
+  border: 2px solid red;
+}

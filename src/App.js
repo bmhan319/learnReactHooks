@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Todo from './Components/Todo'
 import TodoForm from './Components/TodoForm'
+import Component2 from './Components/Component2'
 
 function App() {
   const [todos, setTodos] = useState([
@@ -25,7 +26,7 @@ function App() {
 
   const completedTodo = (index) => {
     const newTodos = [...todos]
-    newTodos[index].isCompleted = true
+    newTodos[index].isCompleted = !todos[index].isCompleted
     setTodos(newTodos)
   }
 
@@ -47,6 +48,8 @@ function App() {
          ))}
         <TodoForm addTodo={addTodo} />
       </div>
+
+      <Component2 />
     </div>
   );
 }
